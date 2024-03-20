@@ -1,6 +1,6 @@
 import validator from 'validator';
-import userModel from '../models/user.model';
-import authToken from '../config/token';
+import userModel from '../models/user.model.js';
+import authToken from '../config/token.js';
 
 export default {
   async create(req, res) {
