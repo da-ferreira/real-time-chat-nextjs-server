@@ -11,7 +11,7 @@ export default {
 
     await db('messages').insert({ id: uuid, chatId, userId, message });
 
-    await db('chats').where('id', chatId).update({ lastMessage: message });
+    await db('chats').where('id', chatId).update({ lastMessage: message, lastMessageAt: db.fn.now() });
 
     return db('messages').where('chatId', chatId).orderBy('createdAt', 'desc').first();
   },

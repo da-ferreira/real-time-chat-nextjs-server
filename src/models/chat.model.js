@@ -28,6 +28,7 @@ export default {
       .leftJoin('users as u1', 'c.user1Id', 'u1.id')
       .leftJoin('users as u2', 'c.user2Id', 'u2.id')
       .where('c.user1Id', userId)
-      .orWhere('c.user2Id', userId);
+      .orWhere('c.user2Id', userId)
+      .orderBy('c.lastMessageAt', 'desc');
   },
 };
